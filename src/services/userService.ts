@@ -1,9 +1,8 @@
 // ./services/books.service.ts
+import Jwt from 'jsonwebtoken';
 import connection from '../models/connection';
 import UserModel from '../models/user.model';
 import User from '../interfaces/user.interface';
-
-const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'secret';
 
@@ -19,9 +18,9 @@ class UserService {
     return products;
   }
 
-  public async create(user: User): Promise<User> {
+  public async create(user: User) {
     await this.model.create(user);
-    const token = jwt.sign({ user }, JWT_SECRET);
+    const token = Jwt.sign({ user }, JWT_SECRET);
     return token;
   }
 }
