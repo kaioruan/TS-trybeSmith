@@ -13,11 +13,6 @@ class UserService {
     this.model = new UserModel(connection);
   }
 
-  public async getAllUser(): Promise<User[]> {
-    const products = await this.model.getAllUser();
-    return products;
-  }
-
   public async create(user: User) {
     await this.model.create(user);
     const token = Jwt.sign({ user }, JWT_SECRET);
