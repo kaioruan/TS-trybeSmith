@@ -1,4 +1,3 @@
-// ./interfaces/book.interface.ts
 interface User {
   id?: number;
   username: string;

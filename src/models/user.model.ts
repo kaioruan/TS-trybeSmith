@@ -1,9 +1,7 @@
-// ./models/book.model.ts
-
-import { Pool, ResultSetHeader } from 'mysql2/promise';
+import { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import User from '../interfaces/user.interface';
 
-export default class BookModel {
+export default class UserModel {
   public connection: Pool;
 
   constructor(connection: Pool) {
@@ -19,5 +17,13 @@ export default class BookModel {
     const [dataInserted] = result;
     const { insertId } = dataInserted;
     return { id: insertId, ...user };
+  }
+
+  public async login(username: string, password: string): Promise<User> {
+    const [result] = await this.connection.execute(
+      'SELECT * FROM Trybesmith.Users WHERE username = ? AND password = ?',
+      [username, password],
+    );
+    return (result as RowDataPacket[])[0] as User || null;
   }
 }

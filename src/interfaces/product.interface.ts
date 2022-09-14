@@ -1,4 +1,3 @@
-// ./interfaces/book.interface.ts
 interface Product {
   id?: number;
   name: string;
