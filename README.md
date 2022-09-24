@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto API de Blogs!
+# Boas vindas ao repositório do projeto TrybeSmith!
 
 
 Esse projeto foi desenvolvido durante o módulo de _BackEnd_ na Trybe! #vqv 🚀
